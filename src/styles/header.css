@@ -1,0 +1,111 @@
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.header-mobile {
+  padding: 16px;
+}
+
+.header-tablet {
+  padding: 0px;
+}
+
+.header-desktop {
+  padding: 42px;
+}
+
+.header-logo-container-extra-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.header-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.header-menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.header-menu-container span {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.header-nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 42px;
+}
+
+.header-nav-item {
+  list-style: none;
+}
+/* better solution would be with ::after */
+.header-nav-item__active {
+  text-decoration: underline;
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Overlay */
+
+.header-mobile-menu-content {
+  margin: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 80px;
+}
+
+.header-mobile-menu-content nav ul{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.header-mobile-menu-content nav li{
+  list-style: none;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.header-mobile-menu-content__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__close-container {
+  width: auto;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--main-text-color);
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+}
