@@ -30,14 +30,30 @@ body {
 
 #app {
   height: 100%;
-  width: 100vw;
+  width: 95vw;
   max-width: 1900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 80px;
 }
+
+h1 {
+  font-size: 5.5rem;
+  line-height: 5.5rem;
+  font-weight: 600;
+}
+
+/* TODO: change to app-mobile class*/
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+  }
+}
+
 /* TODO: add prefer color scheme */
 /* @media (prefers-color-scheme: light) {
   :root {
