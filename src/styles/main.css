@@ -13,6 +13,10 @@
 
   --main-bg-color: #FFFFFF;
   --main-text-color: #1D1D1D;
+  --secondary-bg-color: #EAEAE8;
+
+  --label-bestSeller: #D9D6B0;
+  --label-limited-edition: #D4B0D9;
 }
 
 * {
@@ -46,11 +50,77 @@ h1 {
   font-weight: 600;
 }
 
+h2 {
+  font-size: 2,625rem;
+  line-height: 2,625rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 0.875rem;
+  line-height: 0.875rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
 /* TODO: change to app-mobile class*/
 @media screen and (max-width: 768px) {
   h1 {
     font-size: 3.5rem;
     line-height: 3.5rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    line-height: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+
+  h5 {
+    font-size: 0.875rem;
+    line-height: 0.875rem;
+  }
+
+  h6 {
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 }
 
