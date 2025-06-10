@@ -102,6 +102,17 @@ function updateHeader({ isMobile, isTablet, isDesktop }) {
     closeBtn?.addEventListener('click', () => {
       hideOverlay();
     });
+
+    const overlayNavItems = document.querySelectorAll('.nav__list--item');
+    overlayNavItems.forEach((item) => {
+      item.addEventListener('click', (e) => {
+        const link = e.currentTarget.getAttribute('data-target');
+        hideOverlay();
+        setTimeout(() => {
+          scrollToSection(link, { offset: -56 });
+        }, 600);
+      });
+    });
   });
 
   const navItems = document.querySelectorAll('.header-nav-item');

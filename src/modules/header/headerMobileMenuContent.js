@@ -15,7 +15,7 @@ function headerMobileMenuContent(list) {
         ${list
           .map(
             (item) => `
-          <li class="nav__list--item">
+          <li class="nav__list--item" data-target="${item.target}">
             ${item.title}
           </li>
         `
