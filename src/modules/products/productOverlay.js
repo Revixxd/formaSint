@@ -3,7 +3,7 @@ function createProductOverlay(product) {
     <div class="product-overlay__top-container">
       <span class="product-overlay__top-container--id">ID: ${product.id}</span>
       <div class="product-overlay__top-container__close-container"> 
-        <img src="src/assets/icons/common/close.svg" alt="Close" class="product-overlay__close-icon" />
+        <img src="/assets/icons/common/close.svg" alt="Close" class="product-overlay__close-icon" />
         <span class="product-overlay__top-container__close-container--close" aria-label="Close menu">CLOSE</span>
       </div>
     </div>

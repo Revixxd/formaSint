@@ -33,7 +33,7 @@ function renderFeaturedProducts() {
               <span class="featured-products--label ${toKebabCase(`label-${product.label}`)}">${
         product.label ? product.label.toUpperCase() : ''
       }</span>
-              <img class="featured-products--fav" src="src/assets/icons/common/heart.svg" alt="Add to favorites">
+              <img class="featured-products--fav" src="/assets/icons/common/heart.svg" alt="Add to favorites">
             </div>
             <img class="featured-products--img" src="${product.image}" alt="${
         product.name
@@ -59,10 +59,10 @@ function renderFeaturedProducts() {
         ${productItems}
       </div>
         <div class="swiper-button swiper-button-next">
-          <img src="src/assets/icons/common/arrow-right.svg" alt="Next slide">  
+          <img src="/assets/icons/common/arrow-right.svg" alt="Next slide">  
         </div>
         <div class="swiper-button swiper-button-prev">
-          <img src="src/assets/icons/common/arrow-right.svg" alt="Next slide">  
+          <img src="/assets/icons/common/arrow-right.svg" alt="Next slide">  
         </div>
       <div class="swiper-scrollbar"></div>
     </div>

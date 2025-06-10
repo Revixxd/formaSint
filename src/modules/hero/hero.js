@@ -13,12 +13,12 @@ function updateHero({ isMobile, isTablet, isDesktop }) {
   if (isMobile || isTablet) {
     hero.innerHTML = `
       <h1 class="hero-title">Forma’sint.</h1>
-      <img src="/src/assets/hero/hero-img.webp" alt="Hero Image" class="hero-image" />
+      <img src="/assets/hero/hero-img.webp" alt="Hero Image" class="hero-image" />
     `;
   } else {
     hero.innerHTML = `
       <h1 class="hero-title">Forma’sint.</h1>
-      <img src="/src/assets/hero/hero-img.webp" alt="Hero Image" class="hero-image" />
+      <img src="/assets/hero/hero-img.webp" alt="Hero Image" class="hero-image" />
     `;
   }
 }

@@ -25,12 +25,12 @@ function updateHeader({ isMobile, isTablet, isDesktop }) {
     header.innerHTML = `
      <div class="header-logo-container-extra-name">
         <div class="header-logo-container">
-          <img src="/src/assets/icons/common/logo-bright.svg" alt="Logo" class="header-logo" />
+          <img src="/assets//icons/common/logo-bright.svg" alt="Logo" class="header-logo" />
           <span class="header-logo-container__name">Forma’sint.</span>
         </div>
       </div>
       <div class="header-menu-container">
-        <img src="/src/assets/icons/header/menu-burger.svg" alt="burger menu icon" class="header-menu-burger-icon" />
+        <img src="/assets//icons/header/menu-burger.svg" alt="burger menu icon" class="header-menu-burger-icon" />
         <span>MENU</span>
       </div>
       `;
@@ -38,7 +38,7 @@ function updateHeader({ isMobile, isTablet, isDesktop }) {
     header.innerHTML = `
       <div class="header-logo-container-extra-name">
         <div class="header-logo-container">
-          <img src="/src/assets/icons/common/logo-bright.svg" alt="Logo" class="header-logo" />
+          <img src="/assets//icons/common/logo-bright.svg" alt="Logo" class="header-logo" />
           <span class="header-logo-container__name">Forma’sint.</span>
         </div>
         <span class="header-extra-name">IDOMODS &lt;/&gt;</span>
@@ -53,7 +53,7 @@ function updateHeader({ isMobile, isTablet, isDesktop }) {
             .join('')}
       </nav>
       <div class="header-user">
-        <img src="/src/assets/icons/common/user.svg" alt="User Icon" class="header-user-icon" />
+        <img src="/assets//icons/common/user.svg" alt="User Icon" class="header-user-icon" />
         <span>FRONTEND DEVELOPER</span>
       </div>
     `;
