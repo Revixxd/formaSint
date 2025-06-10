@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FormSint</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs"></script>
   </head>
   <body>
     <div id="app">
       <header></header>
       <section class="hero"></section>
-      <div id="product-swiper"></div>
-      <div id="product-paggination"></div>
+      <section class="featured-products"></section>
     </div>
     <!-- TODO: pack app to one script to manipulate classes for app on mobile -->
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="/src/modules/header/header.js"></script>
     <script type="module" src="/src/modules/hero/hero.js"></script>
+    <script type="module" src="/src/modules/featuredProducts/featuredProducts.js"></script>
   </body>
 </html>
