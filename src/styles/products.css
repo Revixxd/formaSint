@@ -103,3 +103,35 @@
   border-radius: 6px;
 }
 
+/* overlay */
+
+.product-overlay {
+  border-radius: 6px;
+}
+
+.product-overlay__top-container {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.product-overlay__top-container__close-container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-overlay__content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-overlay__content img{
+  max-width: 400px;
+  width: 100%;
+}

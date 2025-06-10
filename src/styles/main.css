@@ -140,8 +140,11 @@ p {
 }
 
 .btn--primary {
-  background-color: var(--primary-gray);
+  background-color: var(--main-bg-color);
   color: var(--main-text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* TODO: add prefer color scheme */

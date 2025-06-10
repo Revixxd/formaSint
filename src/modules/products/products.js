@@ -2,6 +2,8 @@ import '../../styles/products.css';
 import getProducts from '../../utils/getProducts.js';
 import { subscribeDeviceStatus } from '../../utils/getDeviceStatus.js';
 import insertHeroProduct from './insertHeroProduct.js';
+import { hideOverlay, openOverlay } from '../../utils/useOverlay.js';
+import createProductOverlay from './productOverlay.js';
 
 function updateProducts({ isMobile, isTablet, isDesktop }) {
   const products = document.querySelector('.products');
@@ -35,6 +37,7 @@ function updateProducts({ isMobile, isTablet, isDesktop }) {
     const div = document.createElement('div');
     div.classList.add('product-item');
     div.classList.add('product-element');
+    div.product = product;
 
     div.innerHTML = `
       <span class="product-item__id">ID: ${product.id}</span>
@@ -42,6 +45,28 @@ function updateProducts({ isMobile, isTablet, isDesktop }) {
         <img src="${product.image}" alt="${product.name}" />
       </div>
     `;
+
+    const productItems = document.querySelectorAll('.product-item');
+    productItems.forEach((item) => {
+      item.addEventListener('click', (event) => {
+        const product = event.currentTarget.product;
+        openOverlay(
+          (content) => {
+            content.innerHTML = createProductOverlay(product);
+          },
+          {
+            size: '1/2',
+            location: 'center',
+            extraClass: 'product-overlay',
+          }
+        );
+
+        const closeBtn = document.querySelector('.product-overlay__top-container__close-container');
+        closeBtn.addEventListener('click', () => {
+          hideOverlay();
+        });
+      });
+    });
 
     return div;
   }

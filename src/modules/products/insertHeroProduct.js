@@ -16,7 +16,10 @@ function insertHeroProduct(container, index) {
         <h2>You'll look and feel like the champion.</h2>
       </div>
       <div class="product-hero__content__down-container">
-        <button class="btn btn--primary">Check this out</button>
+        <button class="btn btn--primary">
+          Check this out
+          <img src="src/assets/icons/common/chevron-right.svg" alt="Arrow right icon" class="product-hero__content__down-container__icon" />
+        </button>
       </div>
     </div>
     <div class="hero-product__image-container">
