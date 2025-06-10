@@ -1,22 +1,11 @@
 header {
   width: 100%;
+  padding-top: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-weight: 500;
   font-size: 1rem;
-}
-
-.header-mobile {
-  padding: 16px;
-}
-
-.header-tablet {
-  padding: 0px;
-}
-
-.header-desktop {
-  padding: 42px;
 }
 
 .header-logo-container-extra-name {

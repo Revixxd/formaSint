@@ -1,8 +1,9 @@
 .hero {
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: start;
-  width: 100%;
 }
 
 .hero-desktop {
@@ -14,15 +15,9 @@
 }
 
 .hero-image {
+  height: 100%;
   width: 100%;
   border-radius: 8px;
   object-fit: cover;
   object-position: center;
-}
-
-.hero-desktop .hero-image {
-  height: 732px;
-}
-.hero-mobile .hero-image {
-  height: 530px;
 }

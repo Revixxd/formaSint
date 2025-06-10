@@ -46,6 +46,14 @@ body {
   gap: 80px;
 }
 
+.app-initialization {
+  height: 100vh;
+  gap: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 h1 {
   font-size: 5.5rem;
   line-height: 5.5rem;
