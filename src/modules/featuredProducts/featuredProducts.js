@@ -5,6 +5,8 @@ import Swiper from 'swiper';
 import { Scrollbar, Navigation } from 'swiper/modules';
 import { getProductsWithRandom } from '../../utils/getProducts.js';
 import toKebabCase from '../../helpers/toKebabCase.js';
+import { openOverlay, hideOverlay } from '../../utils/useOverlay.js';
+import createProductOverlay from '../products/productOverlay.js';
 
 let localProducts = [];
 const featuredProductsContainer = document.getElementById('featured-products');
@@ -35,7 +37,7 @@ function renderFeaturedProducts() {
       }</span>
               <img class="featured-products--fav" src="/assets/icons/common/heart.svg" alt="Add to favorites">
             </div>
-            <img class="featured-products--img" src="${product.image}" alt="${
+            <img class="featured-products--img" data-product-id="${product.id}" src="${product.image}" alt="${
         product.name
       }" class="featured-products__image">
           </div>
@@ -74,8 +76,6 @@ function initFeaturedProducts() {
     .then(() => {
       renderFeaturedProducts();
       // TODO: add swiper initialization to other function
-      // TODO: fix scrollbar position
-      // TODO: prev button when its begin && hide next button when its end add o
       // TODO: Fix on mobile buttons position
       const swiper = new Swiper('.featured-products__swiper', {
         modules: [Scrollbar, Navigation],
@@ -110,6 +110,29 @@ function initFeaturedProducts() {
         },
       });
       swiper.update();
+      const productItems = document.querySelectorAll('.featured-products--img');
+      productItems.forEach((item) => {
+        item.addEventListener('click', (event) => {
+          const productId = event.currentTarget.getAttribute('data-product-id');
+          const product = localProducts.find((p) => p.id === parseInt(productId, 10));
+          openOverlay(
+            (content) => {
+              content.innerHTML = createProductOverlay(product);
+            },
+            {
+              size: '1/2',
+              location: 'center',
+              extraClass: 'product-overlay',
+              type: 'dialog',
+            }
+          );
+
+          const closeBtn = document.querySelector('.product-overlay__top-container__close-container');
+          closeBtn.addEventListener('click', () => {
+            hideOverlay('dialog');
+          });
+        });
+      });
     })
     .catch((error) => {
       console.error('Error initializing featured products:', error);

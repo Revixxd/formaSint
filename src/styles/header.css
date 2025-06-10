@@ -96,6 +96,10 @@ header {
   justify-content: space-between;
 }
 
+nav li {
+  cursor: pointer;
+}
+
 .header__close-container {
   width: auto;
   background-color: transparent;
