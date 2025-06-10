@@ -31,6 +31,8 @@ header {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .header-menu-container span {

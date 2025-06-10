@@ -15,12 +15,11 @@ function createOverlay() {
   overlay.style.opacity = '0';
   overlay.style.visibility = 'hidden';
   overlay.style.background = 'rgba(0, 0, 0, 0.5)';
-  overlay.style.zIndex = '-1';
   overlay.style.transition = 'opacity .8s ease-in-out,visibility .8s ease-in-out';
 
   overlayContent.id = 'custom-overlay__content';
   overlayContent.style.position = 'fixed';
-  // overlayContent.style.transform = 'translateX(100vw)';
+  overlayContent.style.transform = 'translateX(100vw)';
   overlayContent.style.transition = 'transform .8s ease-in-out';
   overlayContent.style.background = mainBgColor;
   overlayContent.style.boxShadow = '0 2px 16px rgba(0,0,0,0.2)';
@@ -123,7 +122,10 @@ function hideOverlay() {
     content.style.transform = 'translateX(100vw)';
     overlay.style.visibility = 'hide';
     overlay.style.opacity = '0';
-    overlay.style.zIndex = '-1';
+
+    setTimeout(() => {
+      overlay.style.zIndex = '-1';
+    }, 1000);
   }
 }
 

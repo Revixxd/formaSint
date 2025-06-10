@@ -84,9 +84,9 @@ function updateHeader({ isMobile, isTablet, isDesktop }) {
     sections.forEach((section) => observer.observe(section));
   }
 
-  const burgerIcon = header.querySelector('.header-menu-burger-icon');
+  const headerMenuContainer = header.querySelector('.header-menu-container');
 
-  burgerIcon?.addEventListener('click', () => {
+  headerMenuContainer.addEventListener('click', () => {
     openOverlay(
       (content) => {
         content.innerHTML = overlayContent;
@@ -98,7 +98,7 @@ function updateHeader({ isMobile, isTablet, isDesktop }) {
     );
 
     const closeBtn = document.querySelector('.header__close-container');
-    closeBtn?.addEventListener('click', () => {
+    closeBtn.addEventListener('click', () => {
       hideOverlay();
     });
 
