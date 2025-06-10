@@ -68,7 +68,6 @@ function updateHeader({ isMobile, isTablet, isDesktop }) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const targetElement = document.getElementById(entry.target.getAttribute('id'));
-            console.log(targetElement);
             navItems.forEach((item) => {
               if (item.getAttribute('data-target') === `#${targetElement.id}`) {
                 item.classList.add('header-nav-item__active');
