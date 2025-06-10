@@ -1,4 +1,9 @@
 function insertHeroProduct(container, index) {
+  const existingHeroProduct = container.querySelector('.product-hero');
+  if (existingHeroProduct) {
+    existingHeroProduct.remove();
+  }
+
   const heroProduct = document.createElement('div');
 
   heroProduct.classList.add('product-hero');
