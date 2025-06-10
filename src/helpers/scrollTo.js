@@ -5,7 +5,6 @@
  * @param {number} [options.offset=0] - Offset in pixels from the top.
  */
 function scrollToSection(target, options = {}) {
-  console.log('scrollToSection called with:', target, options);
   const offset = options.offset || 0;
   let element = typeof target === 'string' ? document.querySelector(target) : target;
 
