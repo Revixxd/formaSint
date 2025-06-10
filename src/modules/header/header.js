@@ -5,41 +5,14 @@ import headerMenuContent from './headerMobileMenuContent.js';
 import scrollToSection from '../../helpers/scrollTo.js';
 
 const header = document.querySelector('header');
-// TODO: Add active class to nav items on click (header-nav-item__active)
-// TODO: Add on company logo click scroll to top
 // TODO: Overlay stay when from mobile to desktop
 // TODO: Fix overly when hide, menu icon is visible
-
-function highlightActiveSection() {
-  const sections = document.querySelectorAll('section');
-  const navItems = document.querySelectorAll('.overlay-nav-item');
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const activeLink = entry.target.id;
-          navItems.forEach((item) => {
-            item.classList.toggle(
-              'overlay-nav-item__active',
-              item.textContent.toLowerCase() === activeLink.toLowerCase()
-            );
-          });
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-
-  sections.forEach((section) => observer.observe(section));
-}
-
-highlightActiveSection();
+// TODO: Logo on hover should be animated
 
 const sections = [
-  { title: 'Home', target: '.hero' },
-  { title: 'Featured Products', target: '.featured-products' },
-  { title: 'Product Listing', target: '.products' },
+  { title: 'Home', target: '#hero' },
+  { title: 'Featured Products', target: '#featured-products' },
+  { title: 'Product Listing', target: '#products' },
 ];
 const overlayContent = headerMenuContent(sections);
 
@@ -86,7 +59,34 @@ function updateHeader({ isMobile, isTablet, isDesktop }) {
     `;
   }
 
+  function highlightActiveSection() {
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.header-nav-item');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const targetElement = document.getElementById(entry.target.getAttribute('id'));
+            console.log(targetElement);
+            navItems.forEach((item) => {
+              if (item.getAttribute('data-target') === `#${targetElement.id}`) {
+                item.classList.add('header-nav-item__active');
+              } else {
+                item.classList.remove('header-nav-item__active');
+              }
+            });
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+  }
+
   const burgerIcon = header.querySelector('.header-menu-burger-icon');
+
   burgerIcon?.addEventListener('click', () => {
     openOverlay(
       (content) => {
@@ -103,6 +103,7 @@ function updateHeader({ isMobile, isTablet, isDesktop }) {
       hideOverlay();
     });
   });
+
   const navItems = document.querySelectorAll('.header-nav-item');
   navItems.forEach((item) => {
     item.addEventListener('click', (e) => {
@@ -111,7 +112,7 @@ function updateHeader({ isMobile, isTablet, isDesktop }) {
     });
   });
 
-  // highlightActiveSection();
+  highlightActiveSection();
 }
 
 subscribeDeviceStatus(updateHeader);

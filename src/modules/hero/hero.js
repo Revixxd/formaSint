@@ -3,7 +3,7 @@ import { subscribeDeviceStatus } from '../../utils/getDeviceStatus.js';
 
 // TODO: Make h1 more figma designed
 
-const hero = document.querySelector('.hero');
+const hero = document.getElementById('hero');
 
 function updateHero({ isMobile, isTablet, isDesktop }) {
   hero.classList.toggle('hero-mobile', isMobile);

@@ -6,7 +6,7 @@ import { hideOverlay, openOverlay } from '../../utils/useOverlay.js';
 import createProductOverlay from './productOverlay.js';
 
 function updateProducts({ isMobile, isTablet, isDesktop }) {
-  const products = document.querySelector('.products');
+  const products = document.getElementById('products');
 
   products.classList.toggle('products-mobile', isMobile);
   products.classList.toggle('products-tablet', isTablet);

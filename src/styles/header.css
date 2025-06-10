@@ -47,8 +47,13 @@ header {
 
 .header-nav-item {
   list-style: none;
+  cursor: pointer;
 }
-/* better solution would be with ::after */
+
+.header-nav-item:hover {
+  text-decoration: underline;
+}
+/* TODO: better solution would be with ::after */
 .header-nav-item__active {
   text-decoration: underline;
 }
@@ -75,6 +80,7 @@ header {
   flex-direction: column;
   gap: 24px;
 }
+
 .header-mobile-menu-content nav li{
   list-style: none;
   font-size: 1rem;

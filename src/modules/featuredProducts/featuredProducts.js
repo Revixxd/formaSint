@@ -7,7 +7,7 @@ import { getProductsWithRandom } from '../../utils/getProducts.js';
 import toKebabCase from '../../helpers/toKebabCase.js';
 
 let localProducts = [];
-const featuredProductsContainer = document.querySelector('.featured-products');
+const featuredProductsContainer = document.getElementById('featured-products');
 
 async function initializeProducts() {
   try {
