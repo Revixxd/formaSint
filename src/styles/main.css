@@ -19,6 +19,7 @@
 
   --label-bestSeller: #D9D6B0;
   --label-limited-edition: #D4B0D9;
+  --header-height: 56px;
 }
 
 * {
@@ -43,15 +44,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 80px;
 }
 
-.app-initialization {
-  height: 100vh;
-  gap: 45px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+section {
+  margin-bottom: 80px;
 }
 
 h1 {
