@@ -2,31 +2,13 @@
  * Creates an overlay element that is hidden off-screen.
  */
 function createOverlay(overlayContentType) {
-  const root = document.documentElement;
   const app = document.getElementById('app');
   const overlay = document.createElement('div');
   const overlayContent = document.createElement('div');
-  const mainBgColor = getComputedStyle(root).getPropertyValue('--main-bg-color');
   const overlayId = `custom-overlay-${overlayContentType}`;
 
   overlay.id = overlayId;
-  overlay.style.position = 'fixed';
-  overlay.style.width = '100vw';
-  overlay.style.height = '100vh';
-  overlay.style.opacity = '0';
-  overlay.style.visibility = 'hidden';
-  overlay.style.background = 'rgba(0, 0, 0, 0.5)';
-  overlay.style.transition = 'opacity .8s ease-in-out,visibility .8s ease-in-out';
-
   overlayContent.id = `custom-overlay__${overlayContentType}__content`;
-  overlayContent.style.position = 'fixed';
-  overlayContent.style.transition = 'transform .8s ease-in-out';
-  overlayContent.style.background = mainBgColor;
-  overlayContent.style.boxShadow = '0 2px 16px rgba(0,0,0,0.2)';
-
-  if (overlayContentType === 'menu') {
-    overlayContent.style.transform = 'translateX(100vw)';
-  }
 
   app.appendChild(overlay);
   overlay.appendChild(overlayContent);
