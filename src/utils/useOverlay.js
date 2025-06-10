@@ -1,14 +1,15 @@
 /**
  * Creates an overlay element that is hidden off-screen.
  */
-function createOverlay() {
+function createOverlay(overlayContentType) {
   const root = document.documentElement;
   const app = document.getElementById('app');
   const overlay = document.createElement('div');
   const overlayContent = document.createElement('div');
   const mainBgColor = getComputedStyle(root).getPropertyValue('--main-bg-color');
+  const overlayId = `custom-overlay-${overlayContentType}`;
 
-  overlay.id = 'custom-overlay';
+  overlay.id = overlayId;
   overlay.style.position = 'fixed';
   overlay.style.width = '100vw';
   overlay.style.height = '100vh';
@@ -17,12 +18,15 @@ function createOverlay() {
   overlay.style.background = 'rgba(0, 0, 0, 0.5)';
   overlay.style.transition = 'opacity .8s ease-in-out,visibility .8s ease-in-out';
 
-  overlayContent.id = 'custom-overlay__content';
+  overlayContent.id = `custom-overlay__${overlayContentType}__content`;
   overlayContent.style.position = 'fixed';
-  overlayContent.style.transform = 'translateX(100vw)';
   overlayContent.style.transition = 'transform .8s ease-in-out';
   overlayContent.style.background = mainBgColor;
   overlayContent.style.boxShadow = '0 2px 16px rgba(0,0,0,0.2)';
+
+  if (overlayContentType === 'menu') {
+    overlayContent.style.transform = 'translateX(100vw)';
+  }
 
   app.appendChild(overlay);
   overlay.appendChild(overlayContent);
@@ -36,8 +40,8 @@ function createOverlay() {
  * @param {'full' | '1/2' | '3/4' | '4/5'} size - Overlay size: 'full' (100%), 'half' (50%), 'three-quarters' (75%), or '4/5' (80%).
  */
 
-function openOverlay(callback, { size = 'full', location = 'center', extraClass } = {}) {
-  const overlay = document.getElementById('custom-overlay');
+function openOverlay(callback, { size = 'full', location = 'center', extraClass, type = 'menu' } = {}) {
+  const overlay = document.getElementById(`custom-overlay-${type}`);
 
   overlay.style.position = 'fixed';
   overlay.style.width = '100vw';
@@ -50,7 +54,7 @@ function openOverlay(callback, { size = 'full', location = 'center', extraClass 
   overlay.style.opacity = '1';
   overlay.style.top = '0';
 
-  const content = document.getElementById('custom-overlay__content');
+  const content = document.getElementById(`custom-overlay__${type}__content`);
   let width, height, maxWidth;
 
   switch (size) {
@@ -114,12 +118,14 @@ function openOverlay(callback, { size = 'full', location = 'center', extraClass 
  * hide an overlay
  */
 
-function hideOverlay() {
-  const overlay = document.getElementById('custom-overlay');
-  const content = document.getElementById('custom-overlay__content');
+function hideOverlay(type = 'menu') {
+  const overlay = document.getElementById(`custom-overlay-${type}`);
+  const content = document.getElementById(`custom-overlay__${type}__content`);
 
   if (overlay) {
-    content.style.transform = 'translateX(100vw)';
+    if (type === 'menu') {
+      content.style.transform = 'translateX(100vw)';
+    }
     overlay.style.visibility = 'hide';
     overlay.style.opacity = '0';
 

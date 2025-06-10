@@ -3,6 +3,7 @@ import { subscribeDeviceStatus } from '../../utils/getDeviceStatus.js';
 import { openOverlay, hideOverlay } from '../../utils/useOverlay.js';
 import headerMenuContent from './headerMobileMenuContent.js';
 import scrollToSection from '../../helpers/scrollTo.js';
+import { createOverlay } from '../../utils/useOverlay.js';
 
 const header = document.querySelector('header');
 // TODO: Overlay stay when from mobile to desktop
@@ -85,7 +86,6 @@ function updateHeader({ isMobile, isTablet, isDesktop }) {
   }
 
   const headerMenuContainer = header.querySelector('.header-menu-container');
-
   headerMenuContainer.addEventListener('click', () => {
     openOverlay(
       (content) => {
@@ -94,12 +94,13 @@ function updateHeader({ isMobile, isTablet, isDesktop }) {
       {
         size: '4/5',
         location: 'right',
+        type: 'menu',
       }
     );
 
     const closeBtn = document.querySelector('.header__close-container');
     closeBtn.addEventListener('click', () => {
-      hideOverlay();
+      hideOverlay('menu');
     });
 
     const overlayNavItems = document.querySelectorAll('.nav__list--item');

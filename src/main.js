@@ -1,3 +1,4 @@
 import { createOverlay } from './utils/useOverlay.js';
 
-createOverlay();
+createOverlay('dialog');
+createOverlay('menu');

@@ -2,7 +2,7 @@ import '../../styles/products.css';
 import getProducts from '../../utils/getProducts.js';
 import { subscribeDeviceStatus } from '../../utils/getDeviceStatus.js';
 import insertHeroProduct from './insertHeroProduct.js';
-import { hideOverlay, openOverlay } from '../../utils/useOverlay.js';
+import { hideOverlay, openOverlay, createOverlay } from '../../utils/useOverlay.js';
 import createProductOverlay from './productOverlay.js';
 
 function updateProducts({ isMobile, isTablet, isDesktop }) {
@@ -58,12 +58,13 @@ function updateProducts({ isMobile, isTablet, isDesktop }) {
             size: '1/2',
             location: 'center',
             extraClass: 'product-overlay',
+            type: 'dialog',
           }
         );
 
         const closeBtn = document.querySelector('.product-overlay__top-container__close-container');
         closeBtn.addEventListener('click', () => {
-          hideOverlay();
+          hideOverlay('dialog');
         });
       });
     });
