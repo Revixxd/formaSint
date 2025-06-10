@@ -119,7 +119,6 @@ function hideOverlay() {
   const overlay = document.getElementById('custom-overlay');
   const content = document.getElementById('custom-overlay__content');
 
-  console.log('hideOverlay called');
   if (overlay) {
     content.style.transform = 'translateX(100vw)';
     overlay.style.visibility = 'hide';
