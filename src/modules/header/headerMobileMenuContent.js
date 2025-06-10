@@ -6,7 +6,7 @@ function headerMobileMenuContent(list) {
       <div class="header-mobile-menu-content__header">
         <img src="/src/assets/icons/common/logo-bright.svg" alt="Logo" class="header__logo" />
         <button class="header__close-container">
-          <img src="/src/assets/icons/header/close.svg" alt="Close menu icon" class="header__close-container__icon" />
+          <img src="src/assets/icons/common/close.svg" alt="Close menu icon" class="header__close-container__icon" />
           <span class="header__close-container__text" aria-label="Close menu">CLOSE</span>
         </button>
       </div>
