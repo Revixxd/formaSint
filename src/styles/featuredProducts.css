@@ -78,6 +78,9 @@
   padding: 20px;
 }
 
+.featured-products--name {
+  text-align: start;
+}
 .featured-products--label {
   font-size: 0.8rem;
   padding: 4px 8px;

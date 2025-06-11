@@ -50,7 +50,7 @@ function renderFeaturedProducts() {
             >
           </div>
           <div class="featured-products__item-description">
-            <h4 class="featured-products--name">Grey alpine climbing jacket</h4>
+            <h3 class="featured-products--name">Grey alpine climbing jacket</h3>
             <p class="featured-products--price">€${product.price} EUR</p>
           </div>
         </div>

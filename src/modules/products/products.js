@@ -14,7 +14,7 @@ function updateProducts({ isMobile, isTablet, isDesktop }) {
 
   products.innerHTML = `
     <div class="products__select-container">
-      <p>Number of products per page</p>
+      <label for="per-page">Number of products per page</label>
         <select id="per-page">
           <option value="14">14</option>
           <option value="24">24</option>
