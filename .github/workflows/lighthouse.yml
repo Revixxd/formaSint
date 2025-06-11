@@ -30,13 +30,23 @@ jobs:
 
       - name: Update README with report link
         run: |
-          REPORT_PATH="lighthouse-report/lhr-0.html"
+          REPORT_DIR="lighthouse-report"
           README="README.md"
-          LINK_LINE="📊 [Lighthouse Report](./$REPORT_PATH)"
+          REPORT_FILE=$(find "$REPORT_DIR" -name "*.report.html" | sort | tail -n 1)
 
-          grep -q "Lighthouse Report" "$README" && \
-          sed -i "s|.*Lighthouse Report.*|$LINK_LINE|" "$README" || \
-          echo -e "\n$LINK_LINE" >> "$README"
+          if [ -z "$REPORT_FILE" ]; then
+            echo "No report file found!"
+            exit 1
+          fi
+
+          RELATIVE_PATH="./$REPORT_FILE"
+          LINK_LINE="📊 [Lighthouse Report]($RELATIVE_PATH)"
+
+          if grep -q "Lighthouse Report" "$README"; then
+            sed -i "s|.*Lighthouse Report.*|$LINK_LINE|" "$README"
+          else
+            echo -e "\n$LINK_LINE" >> "$README"
+          fi
 
           git add "$README"
           git commit -m "Update README with latest Lighthouse report link" || echo "No changes to commit"
