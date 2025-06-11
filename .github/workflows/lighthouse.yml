@@ -1,4 +1,4 @@
-name: Lighthouse Vercel Report
+name: Lighthouse Report
 
 on:
   push:
@@ -17,37 +17,33 @@ jobs:
       - name: Install Lighthouse CI
         run: npm install -g @lhci/cli
 
-      - name: Run Lighthouse on Vercel deployment
+      - name: Run Lighthouse CI on Vercel site
         run: lhci autorun --config=lighthouserc.cjs
 
       - name: Commit report
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add lighthouse-report
+          git add docs/lighthouse-report
           git commit -m "Add Lighthouse report from Vercel deploy" || echo "No changes to commit"
           git push
 
       - name: Update README with report link
         run: |
-          REPORT_DIR="lighthouse-report"
-          README="README.md"
-          REPORT_FILE=$(find "$REPORT_DIR" -name "*.report.html" | sort | tail -n 1)
-
+          REPORT_FILE=$(find docs/lighthouse-report -name "*.report.html" | sort | tail -n 1)
           if [ -z "$REPORT_FILE" ]; then
             echo "No report file found!"
             exit 1
           fi
+          RELATIVE_URL="https://revixxd.github.io/formaSint/${REPORT_FILE#docs/}"
+          LINK_LINE="📊 [Lighthouse Report]($RELATIVE_URL)"
 
-          RELATIVE_PATH="./$REPORT_FILE"
-          LINK_LINE="📊 [Lighthouse Report]($RELATIVE_PATH)"
-
-          if grep -q "Lighthouse Report" "$README"; then
-            sed -i "s|.*Lighthouse Report.*|$LINK_LINE|" "$README"
+          if grep -q "Lighthouse Report" README.md; then
+            sed -i "s|.*Lighthouse Report.*|$LINK_LINE|" README.md
           else
-            echo -e "\n$LINK_LINE" >> "$README"
+            echo -e "\n$LINK_LINE" >> README.md
           fi
 
-          git add "$README"
+          git add README.md
           git commit -m "Update README with latest Lighthouse report link" || echo "No changes to commit"
           git push
