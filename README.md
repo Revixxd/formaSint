@@ -12,9 +12,9 @@
 
 [forma-sint-steel.app](https://forma-sint-steel.vercel.app)
 
-### 📊 Lighthouse Report
+📊 [Lighthouse Report](./lighthouse-report/lhr-0.html)
 
-[Lighthouse Report](./lighthouse-report/lhr-0.html)
+📊 [Lighthouse Report](./lighthouse-report/lhr-0.html)
 
 ## ⌛Time
 
