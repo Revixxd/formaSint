@@ -12,7 +12,9 @@
 
 [forma-sint-steel.app](https://forma-sint-steel.vercel.app)
 
-### 📊 Lighthouse Report
+## 📊 Lighthouse Report
+
+[Lighthouse Report](https://revixxd.github.io/formaSint/lighthouse-report/forma_sint_steel_vercel_app--2025_06_11_08_45_04.report.html)
 
 [Lighthouse Report](./lighthouse-report/forma_sint_steel_vercel_app--2025_06_11_08_32_48.report.html)
 
