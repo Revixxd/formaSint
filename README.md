@@ -22,11 +22,11 @@
 
 ## ⌛Time
 
-[WakaTime Raport](https://wakatime.com/@Revixxd/projects/zjfynnulti?start=2025-06-04&end=2025-06-10)
+[WakaTime Report](https://wakatime.com/@Revixxd/projects/zjfynnulti?start=2025-06-04&end=2025-06-10)
 
 ## Author
 
 👤 **Adam Myslicki**
 
-* Linkedin: www.linkedin.com/in/adam-myślicki
+* Linkedin: <www.linkedin.com/in/adam-myślicki>
 * Github: [@revixxd](https://github.com/revixxd)
