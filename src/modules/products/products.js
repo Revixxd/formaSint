@@ -38,11 +38,14 @@ function updateProducts({ isMobile, isTablet, isDesktop }) {
     div.classList.add('product-item');
     div.classList.add('product-element');
     div.product = product;
-
     div.innerHTML = `
       <span class="product-item__id">ID: ${product.id}</span>
       <div class="product-item__img-container">
-        <img src="${product.image}" alt="${product.name}" />
+        <img 
+          src="${product.image}" 
+          alt="Product ${product.id}" 
+          loading="lazy"
+          />
       </div>
     `;
 

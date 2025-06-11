@@ -18,12 +18,21 @@ function insertHeroProduct(container, index) {
       <div class="product-hero__content__down-container">
         <button class="btn btn--primary">
           Check this out
-          <img src="/assets/icons/common/chevron-right.svg" alt="Arrow right icon" class="product-hero__content__down-container__icon" />
+          <img 
+            src="/assets/icons/common/chevron-right.svg" 
+            alt="Arrow right icon" 
+            class="product-hero__content__down-container__icon"
+            loading="lazy"
+            />
         </button>
       </div>
     </div>
     <div class="hero-product__image-container">
-      <img src="https://placehold.co/1350x500" alt="Hero Product Image" />
+      <img 
+        src="https://placehold.co/1350x500" 
+        alt="Hero Product Image"
+        loading="lazy" 
+        />
     </div>
   `;
 

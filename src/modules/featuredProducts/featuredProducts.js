@@ -32,14 +32,22 @@ function renderFeaturedProducts() {
         <div class="featured-products__item">
           <div class="featured-products__item--img-container">
             <div class="featured-products__top-info">
-              <span class="featured-products--label ${toKebabCase(`label-${product.label}`)}">${
-        product.label ? product.label.toUpperCase() : ''
-      }</span>
-              <img class="featured-products--fav" src="/assets/icons/common/heart.svg" alt="Add to favorites">
+              <span class="featured-products--label ${toKebabCase(`label-${product.label}`)}">
+                ${product.label ? product.label.toUpperCase() : ''}
+              </span>
+              <img 
+                class="featured-products--fav" 
+                src="/assets/icons/common/heart.svg" 
+                alt="Add to favorites" 
+              >
             </div>
-            <img class="featured-products--img" data-product-id="${product.id}" src="${product.image}" alt="${
-        product.name
-      }" class="featured-products__image">
+            <img 
+              data-product-id="${product.id}" 
+              class="featured-products--img" 
+              src="${product.image}"
+              alt="${product.name}"
+              loading="lazy" 
+            >
           </div>
           <div class="featured-products__item-description">
             <h4 class="featured-products--name">Grey alpine climbing jacket</h4>
@@ -61,10 +69,10 @@ function renderFeaturedProducts() {
         ${productItems}
       </div>
         <div class="swiper-button swiper-button-next">
-          <img src="/assets/icons/common/arrow-right.svg" alt="Next slide">  
+          <img src="/assets/icons/common/arrow-right.svg" alt="Next slide" loading="lazy">  
         </div>
         <div class="swiper-button swiper-button-prev">
-          <img src="/assets/icons/common/arrow-right.svg" alt="Next slide">  
+          <img src="/assets/icons/common/arrow-right.svg" alt="Next slide" loading="lazy">  
         </div>
       <div class="swiper-scrollbar"></div>
     </div>

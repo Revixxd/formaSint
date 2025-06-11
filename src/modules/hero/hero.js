@@ -10,17 +10,15 @@ function updateHero({ isMobile, isTablet, isDesktop }) {
   hero.classList.toggle('hero-tablet', isTablet);
   hero.classList.toggle('hero-desktop', isDesktop);
 
-  if (isMobile || isTablet) {
-    hero.innerHTML = `
-      <h1 class="hero-title">Forma’sint.</h1>
-      <img src="/assets/hero/hero-img.webp" alt="Hero Image" class="hero-image" />
-    `;
-  } else {
-    hero.innerHTML = `
-      <h1 class="hero-title">Forma’sint.</h1>
-      <img src="/assets/hero/hero-img.webp" alt="Hero Image" class="hero-image" />
-    `;
-  }
+  hero.innerHTML = `
+    <h1 class="hero-title">Forma’sint.</h1>
+    <img src="/assets/hero/hero-img.webp" 
+      alt="Hero Image" 
+      class="hero-image"
+      width="1836"
+      height="732"
+    />
+  `;
 }
 
 subscribeDeviceStatus(updateHero);
