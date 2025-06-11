@@ -36,10 +36,10 @@ jobs:
             exit 1
           fi
           RELATIVE_URL="https://revixxd.github.io/formaSint/${REPORT_FILE#docs/}"
-          LINK_LINE="📊 [Lighthouse Report]($RELATIVE_URL)"
+          LINK_LINE="## 📊 Lighthouse Report\n\n[Lighthouse Report]($RELATIVE_URL)"
 
-          if grep -q "Lighthouse Report" README.md; then
-            sed -i "s|.*Lighthouse Report.*|$LINK_LINE|" README.md
+          if grep -q "## 📊 Lighthouse Report" README.md; then
+            sed -i "s|.*## 📊 Lighthouse Report.*|$LINK_LINE|" README.md
           else
             echo -e "\n$LINK_LINE" >> README.md
           fi
