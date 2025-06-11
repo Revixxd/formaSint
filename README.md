@@ -26,5 +26,5 @@
 
 👤 **Adam Myslicki**
 
-* Linkedin: <www.linkedin.com/in/adam-myślicki>
+* Linkedin: www.linkedin.com/in/adam-myślicki
 * Github: [@revixxd](https://github.com/revixxd)
