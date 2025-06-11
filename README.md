@@ -8,17 +8,21 @@
   </p>
 </div>
 
-
 ### ✨ Demo
+
 [forma-sint-steel.app](https://forma-sint-steel.vercel.app)
 
-## ⌛Time
-[WakaTime Raport](https://wakatime.com/@Revixxd/projects/zjfynnulti?start=2025-06-04&end=2025-06-10)
+### 📊 Lighthouse Report
 
+[Lighthouse Report](./lighthouse-report/lhr-0.html)
+
+## ⌛Time
+
+[WakaTime Raport](https://wakatime.com/@Revixxd/projects/zjfynnulti?start=2025-06-04&end=2025-06-10)
 
 ## Author
 
 👤 **Adam Myslicki**
 
-* Linkedin: www.linkedin.com/in/adam-myślicki
+* Linkedin: <www.linkedin.com/in/adam-myślicki>
 * Github: [@revixxd](https://github.com/revixxd)

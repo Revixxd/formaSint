@@ -1,0 +1,40 @@
+name: Lighthouse Vercel Report
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli
+
+      - name: Run Lighthouse on Vercel deployment
+        run: lhci autorun
+
+      - name: Commit report
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add lighthouse-report
+          git commit -m "Add Lighthouse report from Vercel deploy" || echo "No changes to commit"
+          git push
+
+      - name: Update README with report link
+        run: |
+          REPORT_PATH="lighthouse-report/lhr-0.html"
+          README="README.md"
+          LINK_LINE="📊 [Lighthouse Report](./$REPORT_PATH)"
+
+          grep -q "Lighthouse Report" "$README" && \
+          sed -i "s|.*Lighthouse Report.*|$LINK_LINE|" "$README" || \
+          echo -e "\n$LINK_LINE" >> "$README"
+
+          git add "$README"
+          git commit -m "Update README with latest Lighthouse report link" || echo "No changes to commit"
+          git push
