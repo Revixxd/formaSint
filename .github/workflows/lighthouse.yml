@@ -15,7 +15,7 @@ jobs:
         run: npm install -g @lhci/cli
 
       - name: Run Lighthouse on Vercel deployment
-        run: lhci autorun
+        run: lhci autorun --config=lighthouserc.cjs
 
       - name: Commit report
         run: |
