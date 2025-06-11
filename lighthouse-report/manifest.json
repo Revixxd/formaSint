@@ -2,10 +2,10 @@
   {
     "url": "https://forma-sint-steel.vercel.app/",
     "isRepresentativeRun": true,
-    "htmlPath": "/home/runner/work/formaSint/formaSint/lighthouse-report/forma_sint_steel_vercel_app--2025_06_11_08_29_31.report.html",
-    "jsonPath": "/home/runner/work/formaSint/formaSint/lighthouse-report/forma_sint_steel_vercel_app--2025_06_11_08_29_31.report.json",
+    "htmlPath": "/home/runner/work/formaSint/formaSint/lighthouse-report/forma_sint_steel_vercel_app--2025_06_11_08_32_48.report.html",
+    "jsonPath": "/home/runner/work/formaSint/formaSint/lighthouse-report/forma_sint_steel_vercel_app--2025_06_11_08_32_48.report.json",
     "summary": {
-      "performance": 0.84,
+      "performance": 0.92,
       "accessibility": 1,
       "best-practices": 0.96,
       "seo": 1
