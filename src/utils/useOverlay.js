@@ -22,21 +22,35 @@ function createOverlay(overlayContentType) {
  * @param {'full' | '1/2' | '3/4' | '4/5'} size - Overlay size: 'full' (100%), 'half' (50%), 'three-quarters' (75%), or '4/5' (80%).
  */
 
-function openOverlay(callback, { size = 'full', location = 'center', extraClass, type = 'menu' } = {}) {
+function openOverlay(
+  callback,
+  { size = 'full', location = 'center', extraClass, type = 'menu', closeOnOverlayClick = true } = {}
+) {
   const overlay = document.getElementById(`custom-overlay-${type}`);
+  const content = document.getElementById(`custom-overlay__${type}__content`);
 
+  if (overlay && closeOnOverlayClick) {
+    overlay.addEventListener('click', () => {
+      hideOverlay(type);
+    });
+    if (content) {
+      content.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+  }
+  // TODO: move this to a CSS file
   overlay.style.position = 'fixed';
   overlay.style.width = '100vw';
   overlay.style.height = '100vh';
   overlay.style.display = 'flex';
   overlay.style.justifyContent = 'center';
   overlay.style.alignItems = 'center';
-  overlay.style.zIndex = 10000;
+  overlay.style.zIndex = 100;
   overlay.style.visibility = 'visible';
   overlay.style.opacity = '1';
   overlay.style.top = '0';
 
-  const content = document.getElementById(`custom-overlay__${type}__content`);
   let width, height, maxWidth;
 
   switch (size) {
@@ -63,6 +77,7 @@ function openOverlay(callback, { size = 'full', location = 'center', extraClass,
 
   content.style.width = width;
   content.style.height = height;
+  content.style.zIndex = 200;
   content.style.marginLeft = location ? getPosition(location) : null;
 
   if (maxWidth) {

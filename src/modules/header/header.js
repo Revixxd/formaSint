@@ -3,7 +3,6 @@ import { subscribeDeviceStatus } from '../../utils/getDeviceStatus.js';
 import { openOverlay, hideOverlay } from '../../utils/useOverlay.js';
 import headerMenuContent from './headerMobileMenuContent.js';
 import scrollToSection from '../../helpers/scrollTo.js';
-import { createOverlay } from '../../utils/useOverlay.js';
 
 const header = document.querySelector('header');
 // TODO: Overlay stay when from mobile to desktop
