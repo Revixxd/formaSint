@@ -4,7 +4,13 @@ function headerMobileMenuContent(list) {
   const menu = `
     <div class="header-mobile-menu-content">
       <div class="header-mobile-menu-content__header">
-        <img src="/assets//icons/common/logo-bright.svg" alt="Logo" class="header__logo" />
+        <button class="header-logo-container__button">
+            <svg class="company-logo" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_2008_756)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M6 1H18C20.7614 1 23 3.23858 23 6V18C23 20.7614 20.7614 23 18 23H6C3.23858 23 1 20.7614 1 18V6C1 3.23858 3.23858 1 6 1ZM0 6C0 2.68629 2.68629 0 6 0H18C21.3137 0 24 2.68629 24 6V18C24 21.3137 21.3137 24 18 24H6C2.68629 24 0 21.3137 0 18V6ZM17 7.48578V5H7V19H9.69441V13.5872H16.3757V11.1983H9.69441V7.48578H17Z" fill="currentColor"/>
+              </g>
+            </svg>
+          </button>
         <button class="header__close-container">
           <img src="/assets/icons/common/close.svg" alt="Close menu icon" class="header__close-container__icon" />
           <span class="header__close-container__text" aria-label="Close menu">CLOSE</span>

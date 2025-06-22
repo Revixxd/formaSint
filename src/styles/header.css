@@ -26,6 +26,39 @@ header {
   gap: 12px;
 }
 
+.header-logo-container__button {
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.header-logo-container__button .company-logo .logo-f .logo-bg{
+  transition: fill 0.3s ease-in-out;
+}
+
+.header-logo-container__button .company-logo:hover .logo-f  {
+  fill: var(--primary-white-color);
+}
+
+.header-logo-container__button .company-logo:hover .logo-bg {
+  fill: var(--primary-black-color);
+}
+
+.header-logo-container__button .company-logo .logo-stroke {
+  stroke: var(--primary-black-color);
+}
+
+.header-logo-container__button .company-logo .logo-f {
+  fill: var(--primary-black-color);
+}
+.header-logo-container__button .company-logo .logo-bg {
+  transition: 0.4s fill ease-out;
+  fill: var(--primary-white-color);
+}
+
+
+
 .header-menu-container {
   display: flex;
   align-items: center;

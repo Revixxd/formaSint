@@ -46,7 +46,7 @@ function openOverlay(
   overlay.style.display = 'flex';
   overlay.style.justifyContent = 'center';
   overlay.style.alignItems = 'center';
-  overlay.style.zIndex = 100;
+  overlay.style.zIndex = 200;
   overlay.style.visibility = 'visible';
   overlay.style.opacity = '1';
   overlay.style.top = '0';
@@ -77,7 +77,7 @@ function openOverlay(
 
   content.style.width = width;
   content.style.height = height;
-  content.style.zIndex = 200;
+  content.style.zIndex = 300;
   content.style.marginLeft = location ? getPosition(location) : null;
 
   if (maxWidth) {
@@ -128,7 +128,7 @@ function hideOverlay(type = 'menu') {
 
     setTimeout(() => {
       overlay.style.zIndex = '-1';
-    }, 1000);
+    }, 700);
   }
 }
 

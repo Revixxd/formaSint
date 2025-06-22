@@ -78,6 +78,15 @@
   padding: 20px;
 }
 
+.featured-products__top-info .add-to-fav-icon {
+  color: var(--primary-white-color);
+  transition: color 0.3s ease-in-out;
+  cursor: pointer;
+}
+.featured-products__top-info .add-to-fav-icon:hover {
+  color: var(--primary-black-color);
+}
+
 .featured-products--name {
   text-align: start;
 }

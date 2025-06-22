@@ -25,7 +25,9 @@ function updateHeader({ isMobile, isTablet, isDesktop }) {
     header.innerHTML = `
      <div class="header-logo-container-extra-name">
         <div class="header-logo-container">
-          <img src="/assets//icons/common/logo-bright.svg" alt="Logo" class="header-logo" />
+          <button class="header-logo-container__button">
+            <svg class="company-logo" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect class="logo-stroke" x="1.5" y="2" width="21" height="20" rx="4" ry="4" fill="none" stroke="red" stroke-width="2"/><path class="logo-bg" d="M5.5 1.5h13A4.5 4.5 0 0 1 23 6v12a4.5 4.5 0 0 1-4.5 4.5h-13A4.5 4.5 0 0 1 1 18V6a4.5 4.5 0 0 1 4.5-4.5" fill="#fff"/><path class="logo-f" d="M16 7.5v-2H8v13h2.4v-5H16v-2h-5.6v-4z"/></svg>
+          </button>
           <span class="header-logo-container__name">Forma’sint.</span>
         </div>
       </div>
@@ -38,7 +40,9 @@ function updateHeader({ isMobile, isTablet, isDesktop }) {
     header.innerHTML = `
       <div class="header-logo-container-extra-name">
         <div class="header-logo-container">
-          <img src="/assets//icons/common/logo-bright.svg" alt="Logo" class="header-logo" />
+          <button class="header-logo-container__button">
+            <svg class="company-logo" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect class="logo-stroke" x="1.5" y="2" width="21" height="20" rx="4" ry="4" fill="none" stroke="red" stroke-width="2"/><path class="logo-bg" d="M5.5 1.5h13A4.5 4.5 0 0 1 23 6v12a4.5 4.5 0 0 1-4.5 4.5h-13A4.5 4.5 0 0 1 1 18V6a4.5 4.5 0 0 1 4.5-4.5" fill="#fff"/><path class="logo-f" d="M16 7.5v-2H8v13h2.4v-5H16v-2h-5.6v-4z"/></svg>
+          </button>
           <span class="header-logo-container__name">Forma’sint.</span>
         </div>
         <span class="header-extra-name">IDOMODS &lt;/&gt;</span>
@@ -53,7 +57,7 @@ function updateHeader({ isMobile, isTablet, isDesktop }) {
             .join('')}
       </nav>
       <div class="header-user">
-        <img src="/assets//icons/common/user.svg" alt="User Icon" class="header-user-icon" />
+        <img src="/assets/icons/common/user.svg" alt="User Icon" class="header-user-icon" />
         <span>FRONTEND DEVELOPER</span>
       </div>
     `;
