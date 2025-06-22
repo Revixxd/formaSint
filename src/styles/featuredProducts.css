@@ -1,3 +1,9 @@
+:root {
+  --swiper-scrollbar-size: 1px;
+  --swiper-scrollbar-drag-bg-color: var(--primary-black-color);
+  --swiper-scrollbar-bg-color: var(--primary-gray-color);
+}
+
 #featured-products{
   width: 100%;
   overflow-x: auto;
@@ -29,10 +35,12 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  border: solid 1px var(--primary-gray-color);
   visibility: visible;
   transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
   opacity: 1;
   user-select: none;
+  cursor: pointer;
 }
 
 .swiper-button-disabled {
@@ -40,11 +48,20 @@
   visibility: hidden;
 }
 
+.swiper-scrollbar {
+  height: 1px;
+  background: var(--primary-gray-color);
+}
+
+.swiper-scrollbar-drag {
+  background: var(--main-text-color);
+}
+
 .swiper-button-next {
   position: absolute;
   right: 32px;
   top: 45%;
-  z-index: 100;
+  z-index: 2;
 }
 
 .swiper-button-prev {
