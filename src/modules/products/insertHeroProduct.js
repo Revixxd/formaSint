@@ -12,7 +12,7 @@ function insertHeroProduct(container, index) {
   heroProduct.innerHTML = `
     <div class="product-hero__content">
       <div class="product-hero__content__up-container">
-        <p>Forma’sint.</p>
+        <span class="product-hero__content__up-container__up-header">Forma’sint.</span>
         <h2>You'll look and feel like the champion.</h2>
       </div>
       <div class="product-hero__content__down-container">
