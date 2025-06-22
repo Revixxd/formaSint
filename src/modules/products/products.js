@@ -5,6 +5,12 @@ import insertHeroProduct from './insertHeroProduct.js';
 import { hideOverlay, openOverlay } from '../../utils/useOverlay.js';
 import createProductOverlay from './productOverlay.js';
 
+let allProducts = [];
+let perPage = 14;
+let perPageOptions = [14, 24, 36];
+let currentIndex = 0;
+let isLoading = false;
+
 function updateProducts({ isMobile, isTablet, isDesktop }) {
   const productsSection = document.getElementById('products');
 
@@ -12,19 +18,21 @@ function updateProducts({ isMobile, isTablet, isDesktop }) {
 
   const productList = document.querySelector('.products-list');
   const loader = document.querySelector('.products-loader');
-  let perPage = 14;
-  let perPageOptions = [14, 24, 36];
-  let currentIndex = 0;
 
   loader.style.display = 'none';
-
+  console.log('productsSection', allProducts);
   loadDropdown();
-  loadProducts();
+
+  if (allProducts.length === 0 && !isLoading) {
+    loadProducts(true);
+  } else {
+    loadProducts();
+  }
 
   // infinite scroll
   window.addEventListener('scroll', () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
-      loadProducts();
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200 && !isLoading) {
+      loadProducts(true);
     }
   });
 
@@ -38,6 +46,43 @@ function updateProducts({ isMobile, isTablet, isDesktop }) {
       <div class="products-list"></div>
       <div class="products-loader">Loading...</div>
     `;
+  }
+
+  async function loadProducts(shouldReload = false) {
+    if (shouldReload) {
+      if (isLoading) return;
+      isLoading = true;
+      loader.style.display = 'block';
+      try {
+        const data = await getProducts(currentIndex / perPage + 1, perPage);
+        let oneHeroInserted = false;
+        data.products.forEach((product, index) => {
+          const productItem = generateProduct(product);
+
+          allProducts.push(product);
+          productList.appendChild(productItem);
+
+          let productRow = Math.floor((currentIndex + index) / 4) + 1;
+          if ((index + 1) % 4 === 0 && !oneHeroInserted && productRow % 2 === 0) {
+            oneHeroInserted = true;
+            insertHeroProduct(productList, index);
+          }
+        });
+
+        currentIndex += data.products.length;
+      } catch (error) {
+        console.error('Error loading products:', error);
+      } finally {
+        console.log('Products loaded:', allProducts.length);
+        isLoading = false;
+        loader.style.display = 'none';
+      }
+    } else {
+      allProducts.forEach((product) => {
+        const productItem = generateProduct(product);
+        productList.appendChild(productItem);
+      });
+    }
   }
 
   function loadDropdown() {
@@ -84,7 +129,7 @@ function updateProducts({ isMobile, isTablet, isDesktop }) {
         const dropdownOptionValue = parseInt(option.getAttribute('data-number'));
         updateProductsPerPage(dropdownOptionValue);
 
-        dropdown.classList.remove('.open');
+        dropdown.classList.remove('open');
         loadDropdown();
       });
     });
@@ -93,6 +138,7 @@ function updateProducts({ isMobile, isTablet, isDesktop }) {
   function updateProductsPerPage(dropdownOptionValue) {
     perPage = dropdownOptionValue;
 
+    allProducts = [];
     const fromIndex = perPageOptions.indexOf(perPage);
     const toIndex = 0;
 
@@ -104,6 +150,12 @@ function updateProducts({ isMobile, isTablet, isDesktop }) {
     const restSorted = perPageOptions.slice(1).sort((a, b) => a - b);
 
     perPageOptions = [perPageOptions[0], ...restSorted];
+
+    // Reset products and reload from scratch
+    allProducts = [];
+    currentIndex = 0;
+    productList.innerHTML = '';
+    loadProducts(true);
   }
 
   function generateProduct(product) {
@@ -146,34 +198,6 @@ function updateProducts({ isMobile, isTablet, isDesktop }) {
     });
 
     return div;
-  }
-
-  async function loadProducts() {
-    loader.style.display = 'block';
-    console.log('cur:', currentIndex);
-    console.log('perpage:', perPage);
-    console.log(currentIndex / perPage + 1);
-
-    try {
-      const data = await getProducts(currentIndex / perPage + 1, perPage);
-      let oneHeroInserted = false;
-      data.products.forEach((product, index) => {
-        const productItem = generateProduct(product);
-        productList.appendChild(productItem);
-        let productRow = Math.floor((currentIndex + index) / 4) + 1;
-        if ((index + 1) % 4 === 0 && !oneHeroInserted && productRow % 2 === 0) {
-          oneHeroInserted = true;
-          insertHeroProduct(productList, index);
-        }
-      });
-
-      currentIndex += data.products.length;
-    } catch (error) {
-      console.error('Error loading products:', error);
-    } finally {
-      isLoading = false;
-      loader.style.display = 'none';
-    }
   }
 }
 

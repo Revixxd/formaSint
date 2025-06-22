@@ -11,6 +11,7 @@
  */
 
 let listeners = [];
+let prevStatus = {};
 
 function getDeviceStatus() {
   const width = typeof window !== 'undefined' ? window.innerWidth : 1024;
@@ -25,12 +26,22 @@ function getDeviceStatus() {
 function notifyListeners() {
   const status = getDeviceStatus();
 
-  listeners.forEach((callback) => callback(status));
+  if (
+    prevStatus.isMobile !== status.isMobile ||
+    prevStatus.isTablet !== status.isTablet ||
+    prevStatus.isDesktop !== status.isDesktop
+  ) {
+    prevStatus = status;
+    listeners.forEach((callback) => callback(status));
+  }
 }
 
 function subscribeDeviceStatus(callback) {
   listeners.push(callback);
-  callback(getDeviceStatus());
+
+  const initialStatus = getDeviceStatus();
+  prevStatus = initialStatus;
+  callback(initialStatus);
 
   if (listeners.length === 1 && typeof window !== 'undefined') {
     window.addEventListener('resize', notifyListeners);
