@@ -19,7 +19,7 @@ function insertHeroProduct(container, index) {
         <button class="btn btn--primary">
           Check this out
           <img 
-            src="/assets/icons/common/chevron-right.svg" 
+            src="/assets/icons/common/chevron.svg" 
             alt="Arrow right icon" 
             class="product-hero__content__down-container__icon"
             loading="lazy"
